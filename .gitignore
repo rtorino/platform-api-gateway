@@ -1,0 +1,61 @@
+# configuration
+config/index.js
+
+# virtual machine
+.vagrant/
+
+# meta
+plato/
+docs/
+
+# coverage
+instrumented/
+.cover*
+coverage.*
+
+# libraries
+node_modules/
+
+# minified / compiled
+*.min.js
+*.min.css
+*.compile.js
+
+# misc
+*.php
+
+# compiled source #
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# packages #
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# logs and databases #
+*.log
+*.sql
+*.sqlite
+
+# os generated files #
+*.pid
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db

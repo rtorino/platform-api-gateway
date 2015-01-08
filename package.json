@@ -1,0 +1,21 @@
+{
+  "name": "api-gateway",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Raymond Torino",
+  "license": "ISC",
+  "dependencies": {
+    "glob": "^4.3.2",
+    "hapi": "^8.0.0",
+    "hoek": "^2.10.0",
+    "rabbus": "^0.2.1",
+    "wascally": "^0.2.0-7"
+  },
+  "devDependencies": {
+    "sinet-coding-conventions": "^1.15.0"
+  }
+}

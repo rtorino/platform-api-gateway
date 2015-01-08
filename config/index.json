@@ -1,0 +1,15 @@
+{
+  "development": {
+    "api": {
+      "host": "localhost",
+      "port": 3000
+    },
+    "rabbitmq": {
+      "server": "localhost",
+      "port": 15672,
+      "vhost": "/",
+      "user": "guest",
+      "pass": "guest"
+    }
+  }
+}
