@@ -23,6 +23,7 @@
     "gulp-eslint": "^0.2.0",
     "gulp-jscs": "^1.4.0",
     "gulp-jshint": "^1.9.0",
+    "gulp-lintspaces": "^0.2.2",
     "gulp-load": "^0.1.1",
     "jshint-stylish": "^1.0.0",
     "lab": "^5.1.1",

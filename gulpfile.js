@@ -1,9 +1,10 @@
 'use strict';
 
-var gulp   = require( 'gulp' );
-var eslint = require( 'gulp-eslint' );
-var jshint = require( 'gulp-jshint' );
-var jscs   = require( 'gulp-jscs' );
+var gulp       = require( 'gulp' );
+var eslint     = require( 'gulp-eslint' );
+var jshint     = require( 'gulp-jshint' );
+var jscs       = require( 'gulp-jscs' );
+var lintspaces = require( 'gulp-lintspaces' );
 
 var utils  = require( './gulp/utils' );
 
@@ -43,7 +44,20 @@ gulp.task( 'jshint', [ 'loadFiles' ], function () {
 	return stream;
 } );
 
-gulp.task( 'lint', [ 'eslint', 'jscs', 'jshint' ] );
+gulp.task( 'lintspaces', [ 'loadFiles' ], function () {
+	var stream = gulp.src( sourceFiles )
+			.pipe( lintspaces( {
+				'newline'        : true,
+				'newlineMaximum' : 2,
+				'trailingspaces' : true,
+				'indentation'    : 'tabs'
+			} ) )
+			.pipe( jshint.reporter() );
+
+	return stream;
+} );
+
+gulp.task( 'lint', [ 'eslint', 'jscs', 'jshint', 'lintspaces' ] );
 
 gulp.task( 'default', [ 'lint' ], function () {
 
