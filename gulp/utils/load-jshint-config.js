@@ -3,6 +3,11 @@
 var fs   = require( 'fs' );
 var path = require( 'path' );
 
-module.exports = function () {
-	return JSON.parse( fs.readFileSync( path.join( process.cwd(), '.jshintrc' ), 'utf8' ) );
+module.exports = {
+	'loadJSHintConfig' : function loadJSHintConfig () {
+		return JSON.parse( fs
+			.readFileSync( path
+				.join( process.cwd(), '.jshintrc' ),
+				'utf8' ) );
+	}
 };

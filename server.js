@@ -19,23 +19,23 @@ server.connection( {
 Rabbit.configure( {
 	'connection' : config[ env ].rabbitmq
 } )
-.then( function () {
+.then( function addRoutes () {
 	// Add all the routes within the routes folder
 	for ( var route in routes ) {
 		server.route( routes[ route ] );
 	}
-} ).then( null, function ( err ) {
-	setImmediate( function () {
+} ).then( null, function handleError ( err ) {
+	setImmediate( function throwError () {
 		throw err;
 	} );
 } );
 
-var start = function ( done ) {
-	server.start( function () {
+var start = function start ( done ) {
+	server.start( function onServerStarted () {
 		console.log( 'Server running at:', server.info.uri );
 
 		if ( typeof done === 'function' ) {
-		done();
+			done();
 		}
 	} );
 };

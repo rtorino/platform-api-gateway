@@ -4,8 +4,6 @@ var path      = require( 'path' );
 var GitHubApi = require( 'github' );
 var config    = require( '../config/config.json' );
 
-var filterFilePaths = require( './filter-file-paths' );
-
 module.exports = function ( callback ) {
 	var repo     = process.env.TRAVIS_REPO_SLUG && path.basename( process.env.TRAVIS_REPO_SLUG );
 	var PRNumber = process.env.TRAVIS_PULL_REQUEST && JSON.parse( process.env.TRAVIS_PULL_REQUEST );
@@ -47,6 +45,6 @@ module.exports = function ( callback ) {
 			}
 		} );
 
-		callback( error, filterFilePaths( files ) );
+		callback( error, files );
 	} );
 };

@@ -5,17 +5,32 @@ var eslint     = require( 'gulp-eslint' );
 var jshint     = require( 'gulp-jshint' );
 var jscs       = require( 'gulp-jscs' );
 var lintspaces = require( 'gulp-lintspaces' );
+var minimist   = require( 'minimist' );
 
 var utils  = require( './gulp/utils' );
 
-var sourceFiles = [ ];
+var sourceFiles  = [ ];
+var knownOptions = {
+	'string'  : 'target',
+	'default' : {
+		'target' : 'staged'
+	}
+};
+
+var options = minimist( process.argv.slice( 2 ), knownOptions );
+
+var getFiles = {
+	'all'    : utils.getDirFiles,
+	'staged' : utils.getStagedFiles,
+	'travis' : utils.getPullRequestFiles
+}
 
 gulp.task( 'loadFiles', function ( cb ) {
-	utils.getStagedFiles( function ( error, files ) {
+	getFiles[ options.target ]( function ( error, filePaths ) {
 		if ( error ) {
 			cb( error );
 		} else {
-			sourceFiles = files;
+			sourceFiles = utils.filterFilePaths( filePaths );
 			cb( null, sourceFiles );
 		}
 	} );
@@ -60,5 +75,4 @@ gulp.task( 'lintspaces', [ 'loadFiles' ], function () {
 gulp.task( 'lint', [ 'eslint', 'jscs', 'jshint', 'lintspaces' ] );
 
 gulp.task( 'default', [ 'lint' ], function () {
-
 } );
