@@ -1,6 +1,6 @@
 'use strict';
 
 module.exports = {
-	'/groups'      : require( './groups-requester' ),
-	'/group-types' : require( './group-types-requester' )
+	'/v1/groups'      : require( './groups-requester' ),
+	'/v1/group-types' : require( './group-types-requester' )
 };
