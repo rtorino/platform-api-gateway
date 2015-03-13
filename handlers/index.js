@@ -1,21 +1,19 @@
 'use strict';
 
 var requestHandlers  = require( './request-handlers' );
-var responseHandlers = require( './response-handlers' );
 
 module.exports = {
 	// request handlers
 	'request' : {
-		'create' : requestHandlers.handleCreateRequest,
-		'read'   : requestHandlers.handleReadRequest,
-		'update' : requestHandlers.handleUpdateRequest,
-		'delete' : requestHandlers.handleDeleteRequest
-	},
-	// response handlers
-	'response' : {
-		'create' : responseHandlers.handleCreateResponse,
-		'read'   : responseHandlers.handleReadResponse,
-		'update' : responseHandlers.handleUpdateResponse,
-		'delete' : responseHandlers.handleDeleteResponse
+		'create'     : requestHandlers.handleCreate,
+		'upsert'     : requestHandlers.handleUpsert,
+		'exists'     : requestHandlers.handleExists,
+		'findById'   : requestHandlers.handleFindById,
+		'findAll'    : requestHandlers.handleFindAll,
+		'findOne'    : requestHandlers.handleFindOne,
+		'deleteById' : requestHandlers.handleDeleteById,
+		'count'      : requestHandlers.handleCount,
+		'updateById' : requestHandlers.handleUpdateById,
+		'updateAll'  : requestHandlers.handleUpdateAll
 	}
 };

@@ -3,7 +3,7 @@
 var Requester = require( '../requesters' );
 
 module.exports = {
-	'handleCreateRequest' : function handleCreateRequest ( request, reply ) {
+	'handleCreate' : function handleCreate ( request, reply ) {
 		var baseUrl = request.server.info.uri;
 		var path    = request.path;
 
@@ -18,10 +18,22 @@ module.exports = {
 		} );
 	},
 
-	'handleReadRequest' : function handleReadRequest ( request, reply ) {
+	'handleUpsert' : function handleUpsert ( request, reply ) {
+
+	},
+
+	'handleExists' : function handleExists ( request, reply ) {
+
+	},
+
+	'handleFindById' : function handleFindById ( request, reply ) {
+
+	},
+
+	'handleFindAll' : function handleFindAll ( request, reply ) {
 		var path = request.path;
 
-		Requester[ path ].read.request( { }, function handleResponse ( response, done ) {
+		Requester[ path ].findAll.request( { }, function handleResponse ( response, done ) {
 			if ( response.status === 'success' ) {
 				return reply( response.data );
 			} else {
@@ -30,11 +42,23 @@ module.exports = {
 		} );
 	},
 
-	'handleUpdateRequest' : function handleUpdateRequest ( request, reply ) {
-		return;
+	'handleFindOne' : function handleFindOne ( request, reply ) {
+
 	},
 
-	'handleDeleteRequest' : function handleDeleteRequest ( request, reply ) {
-		return;
+	'handleDeleteById' : function handleDeleteById ( request, reply ) {
+
+	},
+
+	'handleCount' : function handleCount ( request, reply ) {
+
+	},
+
+	'handleUpdateById' : function handleUpdateById ( request, reply ) {
+
+	},
+
+	'handleUpdateAll' : function handleUpdateAll ( request, reply ) {
+
 	}
 };

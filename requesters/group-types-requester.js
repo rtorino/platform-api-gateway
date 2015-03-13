@@ -14,11 +14,16 @@ var GroupRequester = function ( options ) {
 util.inherits( GroupRequester, Rabbus.Requester );
 
 var messageTypes = {
-	'create' : 'req-res.api.v1.group-types.create',
-	'read'   : 'req-res.api.v1.group-types.read',
-	'update' : 'req-res.api.v1.group-types.update',
-	'delete' : 'req-res.api.v1.group-types.delete'
-};
+	'create'     : 'req-res.api.v1.group-types.create',
+	'upsert'     : 'req-res.api.v1.group-types.upsert',
+	'exists'     : 'req-res.api.v1.group-types.exists',
+	'findById'   : 'req-res.api.v1.group-types.findById',
+	'findAll'    : 'req-res.api.v1.group-types.findAll',
+	'findOne'    : 'req-res.api.v1.group-types.findOne',
+	'deleteById' : 'req-res.api.v1.group-types.deleteById',
+	'count'      : 'req-res.api.v1.group-types.count',
+	'updateById' : 'req-res.api.v1.group-types.updateById',
+	'updateAll'  : 'req-res.api.v1.group-types.updateAll'};
 
 var requesters = { };
 for ( var type in messageTypes ) {
